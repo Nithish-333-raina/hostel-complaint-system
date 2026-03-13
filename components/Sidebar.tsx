@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, FileText, Settings, BarChart3 } from 'lucide-react'
+import { LayoutDashboard, FileText, Settings, BarChart3, GraduationCap, CalendarCheck, ClipboardList } from 'lucide-react'
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -11,6 +11,9 @@ export function Sidebar() {
   const studentLinks = [
     { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { href: '/my-complaints', label: 'My Complaints', icon: FileText },
+    { href: '/marks', label: 'Student Marks', icon: GraduationCap },
+    { href: '/attendance', label: 'Attendance', icon: CalendarCheck },
+    { href: '/leave', label: 'Leave Request', icon: ClipboardList },
   ]
 
   const adminLinks = [
@@ -43,11 +46,10 @@ export function Sidebar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                isActive
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${isActive
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'text-slate-300 hover:bg-slate-800'
-              }`}
+                }`}
             >
               <Icon className="w-5 h-5" />
               <span className="font-medium">{link.label}</span>
@@ -58,7 +60,7 @@ export function Sidebar() {
 
       <div className="p-4 border-t border-slate-800 space-y-3">
         <div className="bg-slate-800/50 rounded-lg p-3">
-          <p className="text-sm font-medium">John Doe</p>
+          <p className="text-sm font-medium">Vetrivel</p>
           <p className="text-xs text-slate-400 mt-1">
             {isAdmin ? 'Administrator' : 'Student'}
           </p>
