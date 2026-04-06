@@ -58,16 +58,13 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-slate-800 space-y-3">
+      <div className="p-4 border-t border-slate-800">
         <div className="bg-slate-800/50 rounded-lg p-3">
           <p className="text-sm font-medium">Vetrivel</p>
           <p className="text-xs text-slate-400 mt-1">
             {isAdmin ? 'Administrator' : 'Student'}
           </p>
         </div>
-        <button className="w-full py-2 px-3 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800 transition-colors">
-          Profile Settings
-        </button>
       </div>
     </aside>
   )

@@ -11,10 +11,6 @@ import {
   Settings as SettingsIcon, 
   Bell, 
   Shield, 
-  Database, 
-  Mail, 
-  Globe, 
-  Trash2, 
   Save,
   Key
 } from 'lucide-react'
@@ -135,28 +131,6 @@ export default function SettingsPage() {
             </CardContent>
           </Card>
 
-          {/* Danger Zone */}
-          <Card className="border-red-100 dark:border-red-900/30 bg-red-50/30 dark:bg-red-950/10 shadow-none">
-            <CardHeader>
-              <CardTitle className="text-red-700 dark:text-red-400">Critical Actions</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-sm">Purge Archived Complaints</p>
-                  <p className="text-xs text-muted-foreground">Permanently delete all complaints older than 2 years.</p>
-                </div>
-                <Button variant="destructive" size="sm">Purge Data</Button>
-              </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-sm">Reset System Database</p>
-                  <p className="text-xs text-muted-foreground">Wipe all data and factory reset the system.</p>
-                </div>
-                <Button variant="destructive" size="sm">Reset Everything</Button>
-              </div>
-            </CardContent>
-          </Card>
 
           <div className="flex justify-end gap-3 pt-4">
             <Button variant="ghost">Cancel Changes</Button>

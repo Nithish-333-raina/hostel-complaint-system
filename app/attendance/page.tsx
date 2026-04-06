@@ -3,7 +3,7 @@
 import { Sidebar } from '@/components/Sidebar'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { LogOut, CalendarCheck, CheckCircle2, XCircle, AlertCircle, Calendar as CalendarIcon } from 'lucide-react'
+import { CalendarCheck, CheckCircle2, XCircle, AlertCircle, Calendar as CalendarIcon } from 'lucide-react'
 
 export default function AttendancePage() {
   const attendanceData = [
@@ -28,18 +28,12 @@ export default function AttendancePage() {
       <Sidebar />
 
       <main className="flex-1 overflow-auto">
-        <div className="sticky top-0 bg-background/80 backdrop-blur-md border-b border-border px-8 py-4 flex items-center justify-between z-10">
-          <div>
-            <h2 className="text-lg font-semibold flex items-center gap-2">
-              <CalendarCheck className="w-5 h-5 text-emerald-600" />
-              Attendance Record
-            </h2>
-            <p className="text-sm text-muted-foreground">Monitor your daily presence</p>
-          </div>
-          <Button variant="outline" size="sm" className="flex items-center gap-2 bg-transparent">
-            <LogOut className="w-4 h-4" />
-            Logout
-          </Button>
+        <div className="sticky top-0 bg-background/80 backdrop-blur-md border-b border-border px-8 py-4 z-10">
+          <h2 className="text-lg font-semibold flex items-center gap-2">
+            <CalendarCheck className="w-5 h-5 text-emerald-600" />
+            Attendance Record
+          </h2>
+          <p className="text-sm text-muted-foreground">Monitor your daily presence</p>
         </div>
 
         <div className="p-8">

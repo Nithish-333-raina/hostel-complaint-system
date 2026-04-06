@@ -116,6 +116,7 @@ export function AdminComplaintsTable() {
         <thead>
           <tr className="bg-gray-100 dark:bg-gray-900">
             <th className="px-4 py-2 text-left">Title</th>
+            <th className="px-4 py-2 text-left">Description</th>
             <th className="px-4 py-2 text-left">Category</th>
             <th className="px-4 py-2 text-left">Priority</th>
             <th className="px-4 py-2 text-left">Status</th>
@@ -125,7 +126,12 @@ export function AdminComplaintsTable() {
         <tbody>
           {complaints.map((c) => (
             <tr key={c._id} className="border-b border-gray-200 dark:border-gray-700">
-              <td className="px-4 py-2">{c.title}</td>
+              <td className="px-4 py-2 font-medium">{c.title}</td>
+              <td className="px-4 py-2 max-w-xs">
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {c.description || "No description provided"}
+                </p>
+              </td>
               <td className="px-4 py-2">{c.category}</td>
               <td className="px-4 py-2">{c.priority}</td>
               <td className="px-4 py-2 flex items-center gap-2">

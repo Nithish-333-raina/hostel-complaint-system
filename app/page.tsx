@@ -4,14 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { 
-  FileText, 
-  Users, 
-  CheckCircle, 
-  Zap, 
-  ArrowRight, 
-  ShieldCheck, 
-  MessageSquare, 
+import {
+  FileText,
+  Users,
+  CheckCircle,
+  Zap,
+  ArrowRight,
+  ShieldCheck,
+  MessageSquare,
   MousePointer2,
   Lock,
   Search
@@ -29,10 +29,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-none tracking-tight">ComplaintHub</span>
-              <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Hostel Edition</span>
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold"></span>
             </div>
           </div>
-          
+
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#features" className="hover:text-blue-600 transition-colors">Features</a>
             <a href="#how-it-works" className="hover:text-blue-600 transition-colors">How it Works</a>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-3">
-             <Link href="/admin">
+            <Link href="/admin">
               <Button variant="ghost" size="sm" className="hidden sm:flex text-slate-600 dark:text-slate-400">
                 Admin Panel
               </Button>
@@ -59,7 +59,7 @@ export default function Home() {
         <section className="pt-32 pb-20 px-6 overflow-hidden relative">
           <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-blue-100/50 dark:bg-blue-900/20 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-indigo-100/50 dark:bg-indigo-900/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
-          
+
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-bold mb-6 animate-fade-in">
@@ -92,15 +92,14 @@ export default function Home() {
 
               <div className="flex items-center gap-6 py-4 border-t border-slate-200 dark:border-slate-800">
                 <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-950 bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
-                      <Image 
-                        src={`/placeholder-user.jpg`} 
-                        alt="User" 
-                        width={40} 
-                        height={40} 
-                        className="object-cover"
-                      />
+                  {[
+                    { letter: 'A', bg: 'bg-gradient-to-br from-blue-500 to-blue-700' },
+                    { letter: 'B', bg: 'bg-gradient-to-br from-emerald-500 to-emerald-700' },
+                    { letter: 'C', bg: 'bg-gradient-to-br from-purple-500 to-purple-700' },
+                    { letter: 'D', bg: 'bg-gradient-to-br from-orange-500 to-orange-700' },
+                  ].map((item, i) => (
+                    <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-slate-950 ${item.bg} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
+                      {item.letter}
                     </div>
                   ))}
                 </div>
@@ -113,10 +112,10 @@ export default function Home() {
 
             <div className="relative lg:block hidden">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-white/20">
-                <Image 
-                  src="/hero.png" 
-                  alt="Dashboard Preview" 
-                  width={800} 
+                <Image
+                  src="/hero.png"
+                  alt="Dashboard Preview"
+                  width={800}
                   height={600}
                   className="w-full h-auto object-cover"
                   priority
@@ -223,15 +222,58 @@ export default function Home() {
 
               <div className="relative">
                 <div className="aspect-square rounded-full bg-gradient-to-tr from-blue-600/10 to-indigo-600/10 absolute inset-0 -z-10 animate-pulse" />
-                <div className="p-8 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl">
-                  <div className="space-y-4">
-                    <div className="h-4 w-1/2 bg-blue-100 dark:bg-blue-900/50 rounded-full" />
-                    <div className="h-24 w-full bg-slate-100 dark:bg-slate-800 rounded-2xl" />
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="h-20 w-full bg-slate-100 dark:bg-slate-800 rounded-2xl" />
-                      <div className="h-20 w-full bg-slate-100 dark:bg-slate-800 rounded-2xl" />
+                <div className="p-8 bg-white dark:bg-slate-900 backdrop-blur-md rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl">
+                  <div className="space-y-5">
+                    {/* Form Header */}
+                    <div className="flex items-center gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+                      <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center">
+                        <FileText className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-sm text-foreground">New Complaint</p>
+                        <p className="text-[11px] text-muted-foreground">Fill in the details below</p>
+                      </div>
                     </div>
-                    <div className="h-10 w-full bg-blue-600 rounded-xl" />
+
+                    {/* Title Field */}
+                    <div>
+                      <p className="text-[11px] font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider">Title</p>
+                      <div className="h-10 w-full bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center px-3">
+                        <span className="text-sm text-muted-foreground">Water leakage in Room 204</span>
+                      </div>
+                    </div>
+
+                    {/* Category & Priority */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-[11px] font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider">Category</p>
+                        <div className="h-10 w-full bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-between px-3">
+                          <span className="text-sm text-foreground">Facilities</span>
+                          <ArrowRight className="w-3 h-3 text-muted-foreground rotate-90" />
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[11px] font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider">Priority</p>
+                        <div className="h-10 w-full bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800 flex items-center justify-between px-3">
+                          <span className="text-sm text-red-600 font-medium">Urgent</span>
+                          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div>
+                      <p className="text-[11px] font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider">Description</p>
+                      <div className="h-16 w-full bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-3">
+                        <span className="text-xs text-muted-foreground leading-relaxed">Continuous water leakage from the ceiling of Room 204, causing damage to personal belongings...</span>
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="h-11 w-full bg-blue-600 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
+                      <span className="text-white font-semibold text-sm">Submit Complaint</span>
+                      <ArrowRight className="w-4 h-4 text-white" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,13 +284,13 @@ export default function Home() {
         {/* Roles / Final CTA */}
         <section id="roles" className="py-24 bg-blue-600 dark:bg-blue-700 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
-             <div className="grid grid-cols-6 h-full">
-               {[...Array(24)].map((_, i) => (
-                 <div key={i} className="border border-white/20" />
-               ))}
-             </div>
+            <div className="grid grid-cols-6 h-full">
+              {[...Array(24)].map((_, i) => (
+                <div key={i} className="border border-white/20" />
+              ))}
+            </div>
           </div>
-          
+
           <div className="max-w-4xl mx-auto px-6 text-center text-white relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Ready to streamline your hostel communications?</h2>
             <p className="text-xl text-blue-100 mb-12 opacity-90">
@@ -280,7 +322,7 @@ export default function Home() {
             </div>
             <span className="font-bold text-slate-900 dark:text-white">ComplaintHub</span>
           </div>
-          
+
           <div className="flex gap-8 text-sm text-muted-foreground">
             <a href="#" className="hover:text-blue-600">Privacy Policy</a>
             <a href="#" className="hover:text-blue-600">Terms of Service</a>
